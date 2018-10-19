@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/login">Login</a>
+      <a mat-list-item href="/register">Register</a>
+      <a mat-list-item href="/my-profile">My Profile</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>CrazyJacksUI</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    
+    <!-- Add Content Here -->
+
+    <div>
+      <p>
+        Do this tutorial https://www.youtube.com/watch?v=1iW0KnEk6UM
+      </p>
+        <p>
+            The install schematic will help you quickly add Material to a new project. This schematic will:
+        </p>    
+        <p>
+            Ensure project dependencies in package.json
+            Ensure project dependencies in your app module
+            Adds Prebuilt or Setup Custom Theme
+            Adds Roboto fonts to your index.html
+            Apply simple CSS reset to body
+            Generator Schematics
+            In addition to the install schematic Angular Material has three schematics it comes packaged with:
+        </p>
+    
+        <p>
+            Navigation
+            Dashboard
+            Table
+        </p>
+        </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
